@@ -1,18 +1,18 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
-import MyPlugin from './main';
+import GoogleCalendarTasks from './main';
 
-export interface MyPluginSettings {
+export interface GoogleCalendarTasksSettings {
 	mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: GoogleCalendarTasksSettings = {
 	mySetting: 'default',
 };
 
-export class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+export class GoogleCalendarTasksSettingTab extends PluginSettingTab {
+	plugin: GoogleCalendarTasks;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: GoogleCalendarTasks) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -22,17 +22,17 @@ export class SampleSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		new Setting(containerEl)
-			.setName('Settings #1')
-			.setDesc("It's a secret")
-			.addText((text) =>
-				text
-					.setPlaceholder('Enter your secret')
-					.setValue(this.plugin.settings.mySetting)
-					.onChange(async (value) => {
-						this.plugin.settings.mySetting = value;
-						await this.plugin.saveSettings();
-					}),
-			);
+		// new Setting(containerEl)
+		// 	.setName('Settings #1')
+		// 	.setDesc("It's a secret")
+		// 	.addText((text) =>
+		// 		text
+		// 			.setPlaceholder('Enter your secret')
+		// 			.setValue(this.plugin.settings.mySetting)
+		// 			.onChange(async (value) => {
+		// 				this.plugin.settings.mySetting = value;
+		// 				await this.plugin.saveSettings();
+		// 			}),
+		// 	);
 	}
 }
